@@ -9,6 +9,24 @@ export interface TokenPayload {
     role: USER_ROLES
 }
 
+export interface UserDB {
+    id: string,
+    name: string,
+    email: string,
+    password: string,
+    role: USER_ROLES,
+    created_at: string
+}
+
+export interface UserModel {
+    id: string,
+    name: string,
+    email: string,
+    password: string,
+    role: USER_ROLES,
+    createdAt: string
+}
+
 export interface PostDB{
     id: string,
     creator_id: string,
@@ -30,4 +48,7 @@ export interface PostModel {
         id: string,
         name: string
     } 
+
+
+    
 }
