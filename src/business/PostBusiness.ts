@@ -1,5 +1,5 @@
 import { PostDatabase } from "../database/PostDatabase"
-import { CreatePostInput, CreatePostOutput } from "../dtos/postDTO"
+import { CreatePostInput, CreatePostOutput, GetPostsInput } from "../dtos/postDTO"
 import { BadRequestError } from "../errors/BadRequestError"
 import { Post } from "../models/Post"
 import { HashManager } from "../services/HashManager"
@@ -13,7 +13,23 @@ export class PostBusiness {
                 private hashManager: HashManager
       ){}
 
-    public getPosts = async (q: string | undefined) => {
+    public getPosts = async (input: GetPostsInput) => {
+        const {q, token} = input 
+
+        if(!token) {
+          throw new BadRequestError("Token não enviado!")
+        }
+
+        const payload = this.tokenManager.getPayload(token as string)
+
+        if(payload === null) {
+          throw new BadRequestError("Token inválido!")          
+        }
+
+        if(typeof q !== "string" && q !== undefined) {
+          throw new BadRequestError ("'q' deve ser uma string ou undefined")
+        }
+
         const {postsDB, usersDB} = await this.postDatabase.getPostsAndUsers(q)
 
         const posts = postsDB.map((postDB) => {
