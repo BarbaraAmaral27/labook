@@ -31,13 +31,15 @@ export class UserBusiness {
             throw new BadRequestError("'password' deve ser string")
         }
 
+        const hashedPassword = await this.hashManager.hash(password)
+
         const id = this.idGenerator.generate()
 
         const newUser = new User(
             id,
             name,
             email,
-            password,
+            hashedPassword,
             USER_ROLES.NORMAL, // só é possível criar users com contas normais
             new Date().toISOString()
         )
@@ -78,10 +80,15 @@ export class UserBusiness {
             throw new NotFoundError("'email' não encontrado")
         }
 
-        if (password !== userDB.password) {
-            throw new BadRequestError("'email' ou 'password' incorretos")
-        }
+        // if (password !== userDB.password) {
+        //     throw new BadRequestError("'email' ou 'password' incorretos")
+        // }
 
+        const isPasswordCorrect = await this.hashManager.compare(password, userDB.password)
+     
+        if(!isPasswordCorrect){
+            throw new BadRequestError("Email ou senha incorretos!")
+        }
         const user = new User(
             userDB.id,
             userDB.name,
