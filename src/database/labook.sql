@@ -10,10 +10,10 @@ CREATE TABLE users(
 
 INSERT INTO users (id, name, email, password, role)
 VALUES
-        ("u001", "Aline", "aline@labenu.com", "aline1234", "author"),
-        ("u002", "Binho", "binho@gmail.com", "binho1234", "author"),
-        ("u003", "Evandro", "evandro@gmail.com", "evandro1234", "author"),
-        ("u004", "Paula", "paula@labenu.com", "paula1234", "admin");
+        ("u001", "Aline", "aline@labenu.com", "$2a$12$4ZiRkJOctWIhLX0LGN3zae0gKRkiFwzv12Xbg0R/cBRgxrqcQAEC6", "author"),
+        ("u002", "Binho", "binho@gmail.com", "$2a$12$VCkT4hT9ZvqeCMTxBvOXlOa0oFNs0NAv3LK4JrBtlxHCxV5NtPVYS", "author"),
+        ("u003", "Evandro", "evandro@gmail.com", "$2a$12$C5Mb56OZm5IgonJr1NZ3aedafRUSizeg2X18.zRjT.AVMaXa/AEW6", "author"),
+        ("u004", "Paula", "paula@labenu.com", "$2a$12$PwqMa9CQfyXrM3PlZYZJUunbw0f2066.ey.SZEscQ95f3vMkbsqve", "admin");
 
 SELECT * FROM users;
 
