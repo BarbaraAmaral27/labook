@@ -5,7 +5,7 @@
 
 
 ## 📑Introdução
-    O projero Labook é uma rede social desenvolvida com o intuito de conectar diferentes pessoas e fazer com elas possam interagir entre si. Desta forma o Labook permite a criação de usuários, criação de posts e curtir/discurtir posts de outras pessoas.
+    O projero Labook é uma rede social desenvolvida com o intuito de conectar diferentes pessoas e fazer com que elas possam interagir entre si. Desta forma o Labook permite a criação de usuários, criação de posts e curtir/descurtir posts de outras pessoas.
 
 ## ⚙️Tecnologias utilizadas
 
