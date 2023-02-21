@@ -49,7 +49,7 @@ CREATE TABLE likes_dislikes(
     UNIQUE (user_id, post_id)
 );
 
-INSERT INTO likes_dislikes
+INSERT INTO likes_dislikes (user_id, post_id, like)
 VALUES  ("u002", "p002", 1),
         ("u003", "p001", 1),
         ("u004", "p004", 1),
